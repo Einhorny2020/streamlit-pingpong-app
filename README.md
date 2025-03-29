@@ -1,55 +1,32 @@
-# Streamlit Ping-Pong App – CI/CD + Hébergement Cloud
 
-Ce mini projet montre comment :
-- Développer une app interactive Python avec Streamlit
-- Ajouter un pipeline CI/CD via GitHub Actions (tests + lint)
-- Déployer automatiquement sur **Streamlit Cloud**
+# 🏓 Streamlit Ping-Pong App – Version Intégrée HTML5 + CI/CD
 
----
+Ce projet propose :
+- Une interface Streamlit simple avec **vrai jeu de ping-pong HTML5 intégré**
+- Un pipeline CI/CD via GitHub Actions (tests + lint)
+- Un script de lancement local
+- Et un déploiement facile sur Streamlit Cloud 🌐
 
-## Démo hébergée (grâce à Streamlit Cloud)
+## 🔗 Démo en ligne (à venir)
 
-[Clique ici pour jouer  ton-lien.streamlit.app](https://share.streamlit.io/ton-utilisateur/streamlit-pingpong-app/main/app.py)
+[https://ton-utilisateur.streamlit.app](https://ton-utilisateur.streamlit.app)
 
----
-
-## Structure
-
-```
-streamlit-pingpong-app/
-├── app.py                 # Jeu intégré via iframe
-├── test_app.py            # Test basique
-├── requirements.txt       # Dépendances
-├── .flake8                # Style PEP8
-├── deploy_local.sh        # Lancement local
-└── .github/workflows/ci.yml  # Pipeline CI/CD
-```
-
----
-
-## ▶Lancer localement
+## ▶️ Lancer localement
 
 ```bash
 chmod +x deploy_local.sh
 ./deploy_local.sh
 ```
 
----
+## 📂 Fichiers clés
 
-## Pipeline GitHub
+- `app.py` → lance l’app Streamlit avec le jeu intégré
+- `game.html` → le vrai jeu HTML5 autonome
+- `requirements.txt`, `.github/workflows/ci.yml`, etc.
 
-- `flake8` : vérifie la propreté du code
-- `pytest` : s’assure que les tests passent
-- Déclenché à chaque commit ou PR sur `main`
+## 🚀 Déploiement Cloud
 
----
-
-## Déploiement sur Streamlit Cloud
-
-1. Crée un repo GitHub
-2. Upload le projet
-3. Va sur [https://streamlit.io/cloud](https://streamlit.io/cloud)
-4. Connecte ton GitHub et sélectionne le repo
-5. Lance : tout est automatique !
-
----
+1. Poussez ce projet sur GitHub
+2. Allez sur https://streamlit.io/cloud
+3. Sélectionnez le repo, branche `main`, fichier `app.py`
+4. 🎉 L’app est en ligne !

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ping Pong Game</title>
+<style>
+  body { margin: 0; background: #000; }
+  canvas { display: block; margin: 0 auto; background: #222; }
+</style>
+</head>
+<body>
+<canvas id="gameCanvas" width="600" height="400"></canvas>
+<script>
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+
+  let paddleWidth = 80, paddleHeight = 10;
+  let ballRadius = 8;
+  let x = canvas.width / 2, y = canvas.height - 30;
+  let dx = 2, dy = -2;
+  let paddleX = (canvas.width - paddleWidth) / 2;
+  let rightPressed = false, leftPressed = false;
+
+  document.addEventListener("keydown", e => {
+    if(e.key === "Right" || e.key === "ArrowRight") rightPressed = true;
+    else if(e.key === "Left" || e.key === "ArrowLeft") leftPressed = true;
+  }, false);
+
+  document.addEventListener("keyup", e => {
+    if(e.key === "Right" || e.key === "ArrowRight") rightPressed = false;
+    else if(e.key === "Left" || e.key === "ArrowLeft") leftPressed = false;
+  }, false);
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+    ctx.fillStyle = "#00ffcc";
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height - paddleHeight - 10, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#00ccff";
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    drawPaddle();
+
+    if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) dx = -dx;
+    if(y + dy < ballRadius) dy = -dy;
+    else if(y + dy > canvas.height - paddleHeight - 10) {
+      if(x > paddleX && x < paddleX + paddleWidth) dy = -dy;
+      else {
+        document.location.reload();
+      }
+    }
+
+    if(rightPressed && paddleX < canvas.width - paddleWidth) paddleX += 5;
+    else if(leftPressed && paddleX > 0) paddleX -= 5;
+
+    x += dx;
+    y += dy;
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+</script>
+</body>
+</html>
