@@ -7,9 +7,9 @@ Ce projet propose :
 - Un script de lancement local
 - Et un déploiement facile sur Streamlit Cloud
 
-## Démo en ligne (à venir)
+## Démo en ligne
 
-[https://https://app-pingpong-app-ejbn8yq8bzkbc9ntgs4kdi.streamlit.app/](https://https://app-pingpong-app-ejbn8yq8bzkbc9ntgs4kdi.streamlit.app/)
+[https://app-pingpong-app-ejbn8yq8bzkbc9ntgs4kdi.streamlit.app/](https://app-pingpong-app-ejbn8yq8bzkbc9ntgs4kdi.streamlit.app/)
 
 ## Lancer localement
 
